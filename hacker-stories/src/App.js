@@ -28,30 +28,26 @@ const list = [
     objectID: 1,
   },
 ];
-function App() {
-  
+
+const App = () => {
+  // do something in between
+  const handleChange = (event) => {
+    console.log(event.target.value);
+  };
+
   return (
     <div>
-        <h1>
-        {welcome.greeting} {welcome.title}
-        </h1>
-        <label htmlFor="search">Search: </label>
-        <input id="search" type="text" />
+      <h1>My Hacker Stories</h1>
 
-        <h2>Array:</h2>
-        <ul>
-          { list.map((item) =>  <li key={item.objectID}><a href={item.url}>{item.author}</a></li>) }
-        </ul>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" onChange={handleChange}/>
 
-        <ul>
-          X: { list.map((item) =>  null) }
-        </ul>
+      <hr />
 
-        <List />
-
+      <List />
     </div>
   );
-}
+};
 
 const List = () => 
   list.map( item => (
